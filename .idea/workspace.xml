@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c2246b3-2516-4589-bbcf-01193ec693f4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/core/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/core/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/core/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/core/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/core/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProjetGecom.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetGecom/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/core/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetGecom/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetGecom/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjetGecom/wsgi.py" beforeDir="false" />
-    </list>
+    <list default="true" id="6c2246b3-2516-4589-bbcf-01193ec693f4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +36,12 @@
     "git-widget-placeholder": "main"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lenovo\PycharmProjects\ProjetGecom\ProjetGecom" />
+      <recent name="C:\Users\lenovo\PycharmProjects\ProjetGecom" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
