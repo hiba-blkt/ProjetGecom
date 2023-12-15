@@ -13,18 +13,23 @@ class CaissierManager(BaseUserManager):
 
     def create_superuser(self, email, password=None, **extra_fields):
         extra_fields.setdefault('admin', True)
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
         return self.create_user(email, password, **extra_fields)
 
 class Caissier(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     nom = models.CharField(max_length=255)
+    username = models.CharField(max_length=255,unique=True)
     prenom = models.CharField(max_length=255)
     poste = models.CharField(max_length=255)
     admin = models.BooleanField(default=False)
-
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+    username="admin"
     objects = CaissierManager()
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['nom', 'prenom', 'poste']
 
     def _str_(self):
