@@ -3,21 +3,16 @@ from django.contrib import admin
 # Register your models here.
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import Caissier
+from .models import Caissier, Client, DetailBL, Article, Famille, BonLivraison
+
 
 class CaissierAdmin(UserAdmin):
-    list_display = ('email', 'nom', 'prenom', 'poste', 'admin')
+    list_display = ('email', 'nom', 'prenom', 'username', 'poste', 'admin','is_staff')
     list_filter = ('admin',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         ('Informations personnelles', {'fields': ('nom', 'prenom', 'poste')}),
         ('Permissions', {'fields': ('admin',)}),
-    )
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2', 'nom', 'prenom', 'poste', 'admin'),
-        }),
     )
     search_fields = ('email', 'nom', 'prenom')
     ordering = ('email',)
@@ -25,7 +20,6 @@ class CaissierAdmin(UserAdmin):
 # Enregistrement du modèle Caissier avec sa configuration admin personnalisée
 admin.site.register(Caissier, CaissierAdmin)
 
-from .models import Client, DetailBL, Article, Famille, BonLivraison
 
 # Configurations pour le modèle Client
 class ClientAdmin(admin.ModelAdmin):

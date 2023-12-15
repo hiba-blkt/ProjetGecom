@@ -26,7 +26,7 @@ class Caissier(AbstractBaseUser, PermissionsMixin):
     admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    username="admin"
+    
     objects = CaissierManager()
 
     USERNAME_FIELD = 'username'
@@ -34,6 +34,7 @@ class Caissier(AbstractBaseUser, PermissionsMixin):
 
     def _str_(self):
         return self.email
+
 class Client(models.Model):
     nom = models.CharField(max_length=255)
     prenom = models.CharField(max_length=255)
