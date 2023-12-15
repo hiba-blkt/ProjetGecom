@@ -21,7 +21,7 @@ class Caissier(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     nom = models.CharField(max_length=255)
     username = models.CharField(
-        max_length=255,unique=True,default='anonyme'
+        max_length=255,unique=True
         )
     prenom = models.CharField(max_length=255)
     poste = models.CharField(max_length=255)
