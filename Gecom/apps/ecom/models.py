@@ -32,7 +32,7 @@ class Caissier(AbstractBaseUser, PermissionsMixin):
     objects = CaissierManager()
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['nom', 'prenom','username', 'poste']
+    REQUIRED_FIELDS = ['nom', 'prenom', 'poste']
 
     def _str_(self):
         return self.full_name
