@@ -20,7 +20,9 @@ class CaissierManager(BaseUserManager):
 class Caissier(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     nom = models.CharField(max_length=255)
-    username = models.CharField(max_length=255,unique=True)
+    username = models.CharField(
+        max_length=255,unique=True,default='anonyme'
+        )
     prenom = models.CharField(max_length=255)
     poste = models.CharField(max_length=255)
     admin = models.BooleanField(default=False)
@@ -30,10 +32,15 @@ class Caissier(AbstractBaseUser, PermissionsMixin):
     objects = CaissierManager()
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['nom', 'prenom', 'poste']
+    REQUIRED_FIELDS = ['nom', 'prenom','username', 'poste']
 
     def _str_(self):
-        return self.email
+        return self.full_name
+    
+    @property
+    def full_name(self):
+        ''' Retourne le nom complet du caissier '''
+        return f'{self.prenom} {self.nom}'
 
 class Client(models.Model):
     nom = models.CharField(max_length=255)
@@ -41,10 +48,16 @@ class Client(models.Model):
     adresse = models.CharField(max_length=255)
     ville = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.nom
+
 class DetailBL(models.Model):
     article = models.ForeignKey('Article', on_delete=models.CASCADE)
     bl = models.ForeignKey('BonLivraison', on_delete=models.CASCADE)
     qte = models.DecimalField(max_digits=8, decimal_places=2)
+
+    def __str__(self):
+        return self.article.description
 
 class Article(models.Model):
     designation = models.CharField(max_length=255)
@@ -53,10 +66,19 @@ class Article(models.Model):
     stock = models.DecimalField(max_digits=8, decimal_places=2)
     famille = models.ForeignKey('Famille', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.description
+
 class Famille(models.Model):
     famille = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.famille
 
 class BonLivraison(models.Model):
     date = models.DateField()
     client = models.ForeignKey('Client', null=True, on_delete=models.CASCADE)
     caissier = models.ForeignKey('Caissier', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.client.nom} le {self.date}'
